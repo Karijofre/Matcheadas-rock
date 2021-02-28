@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styel.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="icon" href="./amy.png" type="image/png">
+    <title class="matcheadas">MatcheADAs Rock</title>
+</head>
+<body>
+    <main>
+   <div class="container">
+       <h1 class="title">MatcheADAs del Rock 🤘</h1>
+       <div class="control">
+           <div class="table-score">
+               <p class="combo-x">Combo X
+                   <span class="combo">1</span>
+               </p>
+               <p class="point">Puntos
+                   <span class="score" id="score">0</span>
+               </p>
+           </div>
+       
+       <div>
+           <button class="help-button" id="help-button" aria-label="Instrucciones"><i class="fas fa-info-circle" aria-hidden="true"></i></button>
+
+           <button class="restart" id="restart" aria-label="Reiniciar"><i class="fas fa-undo-alt" aria-hidden="true"></i></button>
+       </div>
+       </div>
+
+
+       <div class="grid" id="grid"></div>
+
+
+       <div class="modal-welcome" id="modal-welcome" >
+        
+       </div>
+    </div>
+
+    </main>
+    
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./grid.js"></script>
+    <script src="./modal.js"></script>
+</body>
+</html>
