@@ -6,11 +6,9 @@
 //-Agregar una puntuación de tres puntos cada vez que se encuentre una fila/columna de tres ítems, agregando esto como una variable global comenzando con el puntaje de inicio en cero.
 
 
-//DOM listo para recibir instrucciones
+//DOM
 
-
-
-
+//Grilla de 8 (modo normal)
 
 document.addEventListener("DOMContentLoaded",()=>{
     const grid = document.querySelector(".grid")
@@ -177,7 +175,7 @@ function matchFourColumn(){
           const empty = squares[i].style.backgroundImage === ""
 
           const notValid = [6, 7, 14, 15, 22, 23, 30, 31, 38, 39, 46, 47, 54, 55] /*  es cada índice NO VALIDO porque no quiero que mi fila de
-          tres para empiece en seis de lo contrario una fila aparecería al otro lado de mi grilla, igual para el índice siete y así sucesivamente. */
+          tres empiece en seis de lo contrario una fila aparecería al otro lado de mi grilla, igual para el índice siete y así sucesivamente. */
           if(notValid.includes(i)) continue
 
           if (filaDeTres.every(index => squares[index].style.backgroundImage === colorFijo && !empty )) {
