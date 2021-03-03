@@ -11,7 +11,7 @@ setInterval(()=>{
     }else{
         swal("¡Juego terminado!", {
             buttons: ["Nuevo juego", "Reiniciar"],
-          })
+            })
         return; 
     }
     function myStopFunction() {
