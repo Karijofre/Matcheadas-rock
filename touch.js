@@ -95,4 +95,5 @@
 
         _mouseInit.call(self);
     };
-})(jQuery);
+    (jQuery);
+})
