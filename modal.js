@@ -1,81 +1,179 @@
 
-//Niveles de dificultad del juego
 
-/* let easy =""
-let normal =""
-let hard =" */
+//DOM
 
-/* 
+const combo = document.getElementById("combo");
+const helpButton = document.getElementById("help-button");
+const restart = document.getElementById("restart");
 
 
-  swal("Selecciona una dificultad para tu nuevo juego", {
-  
-    buttons: {
-      facil: {
-        text: "Facil",
-        value: "easy"
-      },
-      medio: {
-        text: "Medio",
-        value: "normal"
-      },
-      dificil: {
-        text: "dificil",
-        value: "hard"
-      },
-    },
-   
-  })
-  .then((value) => {
-    switch (value) {
-      case "facil":
-        easy(value)
-        break;
-      case "medio":
-        break;
-        normal(value)
-      case "dificil":
-        break;
-        hard(value)
-      default:
+//EVENTS
+
+const nuevaGrid = ()=>{
+  document.innerHTML = "";
+}
+
+//Tiempo de juego
+
+let topTime = 30;
+let stopTime = 0; 
+
+
+
+
+
+
+//Bienvenida
+
+const contenido = document.createElement("span");
+contenido.innerHTML = "En MatcheADAs tu objetivo es juntar tres o más ítems del mismo tipo, ya sea en fila o columna. Para eso, selecciona un ítem y a continuación un ítem adyacente para intercambiarlos de lugar. <br /> <br /> Si se forma un grupo, esos ítems se eliminarán y ganarás puntos. ¡Sigue armando grupos de 3 o más antes de que se acabe el tiempo!<br /> <br /> <strong>Controles</strong> <br /> Click izquierdo: selección <br />Enter o Espacio: selección <br /> Flechas o WASD: movimiento e intercambio";
+
+const welcome = () =>{
+  swal ({
+    title:"¡Bienvenida/o!",
+    content: contenido,
+    button: "A jugar!",
+    closeOnClickOutside : false,
+    closeOnEsc : false, 
+  }).then((value) =>{
+    if(value){
+      difficulty();
     }
-    
-    grid.innerHTML = value
-  });
-  
-    const easy = (value) =>{
-    document.grid.style.height = '650px'; 
-    document.grid.style.width = "650px";
-  }
+  })
+}
 
-    const normal = (value) =>{
-    document.grid.style.height = "560px";
-    document.grid.style.width = "560px";
-  }
+//Botón ?
 
-    const hard = (value) =>{
-    document.grid.style.height = "500px";
-    document.grid.style.width = "500px";
-  }
-  
-
- */
-
-//Modal de Bienvenida
-
-const modalWelcome = document.getElementById("modal-welcome");
-
-swal({
-    title: "¡Bienvenida/o!",
-    text: "En MatchADAs del Rock tu objetivo es juntar tres o más ítems del mismo rockstar, ya se en fila o columna. Para eso, selecciona un ítem y a continuación un ítem adyacente para intercambiarlos de lugar. Si se forma un grupo , esos ítems se eliminarán y ganarás puntos. ¡Sigue armando grupos de 3 o más rockstars antes de que se acabe el tiempo! Controles: *** Click izquierdo: selección *** Enter o Espacio: selección ***  Flechas o WASD: movimiento e intercambio",
-    icon: "amy.png",
-    button: "A Jugar",
+const info = () =>{
+  clearInterval(time);
+  swal({
+    title: "Información",
+    content: contenido,
+    button: "A jugar!",
     closeOnClickOutside: false,
     closeOnEsc: false,
-    
-  }
-    /* .then(value) */
-  );
-  
+  }).then((value)=>{
+    counter(stopTime);
+  })
+}
 
-  /*  modalWelcome();  */
+//Dificultades
+
+const difficulty = () =>{
+  swal({
+    title: "Nuevo juego",
+    text: "Selecciona una dificultad",
+    buttons: {
+      easy: {
+        text: "Fácil",
+        value: "easy",
+      },
+      normal: {
+        text: "Normal",
+        value: "normal",
+      },
+      hard: {
+        text: "Difícil",
+        value: "hard",
+      },
+    },
+    closeOnClickOutside: false,
+    closeOnEsc: false,
+  }).then((value)=>{
+    switch(value){
+      case "easy":
+        place= 9;
+        nuevaGrid(place);
+        break;
+      case "normal":
+        place= 8;
+        nuevaGrid(place);
+        break;
+      case "hard":
+        place= 7;
+        nuevaGrid(place);
+        break;
+      default:    
+    }
+  })
+}
+
+//Reestablecer
+
+const restarting = () =>{
+  clearInterval(time);
+  swal({
+    title: "Reiniciar juego",
+    text: "Perderás todo tu puntaje acumulado!",
+    buttons: {
+      noRestart: {
+        text: "Cancelar",
+        value: "noRestart",
+      },
+      newGame: {
+        text: "Nuevo juego",
+        value: "newGame",
+      },
+    },
+    closeOnClickOutside: false,
+    closeOnEsc: false,
+  }).then((value)=>{
+    switch(value){
+      case "noRestart":
+        time(stopTime);
+        break;
+      case "new":
+        nuevaGrid();
+        difficulty();
+        break;
+      default:    
+    }
+  })
+}
+
+//Fin del juego
+
+const gameOver = () =>{
+  clearInterval(time);
+  swal({
+    title: "¡Juego terminado!",
+    text: `Puntaje final:`,
+    buttons: {
+      new: {
+        text: "Nuevo juego",
+        value: "new",
+      },
+      reinicia: {
+        text: "Reiniciar",
+        value: "reinicia",
+      },
+    },
+    closeOnClickOutside: false,
+    closeOnEsc: false,
+  }).then((value) =>{
+    switch(value){
+      case "new":
+        nuevaGrid();
+        difficulty();
+        break;
+      case "reinicia":
+        nuevaGrid();
+        break;
+      default:    
+    }
+  })  
+}
+
+window.addEventListener("load", ()=>{
+  welcome();
+})
+
+helpButton.addEventListener("click",()=>{
+  info();
+})
+
+restart.addEventListener("click",()=>{
+  restarting();
+})
+
+

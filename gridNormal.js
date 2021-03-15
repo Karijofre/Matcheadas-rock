@@ -13,7 +13,7 @@
 document.addEventListener("DOMContentLoaded",()=>{
     const grid = document.querySelector(".grid")
     const scoreDisplay = document.getElementById("score")
-    const place = 8
+    let place = 8
     const squares = []
     const imageColors = [ 
          "url(mercury.png)",

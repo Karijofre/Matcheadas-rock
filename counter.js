@@ -1,8 +1,8 @@
-
 const counter = document.getElementById("counter");
 
 
 let time = 30;
+let myStopFunction;
 
 setInterval(()=>{
     if(time > -1){
@@ -16,12 +16,14 @@ setInterval(()=>{
     }
     function myStopFunction() {
         clearInterval(time);
-       
-      }
+        setInterval();
+      };
+      
      
 
 }, 1000)
 
  myStopFunction()
 
- 
+ //function stopTimer() {
+ // clearInterval(restTime);
