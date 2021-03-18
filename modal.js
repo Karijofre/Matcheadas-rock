@@ -26,7 +26,7 @@ let stopTime = 0;
 //Bienvenida
 
 const contenido = document.createElement("span");
-contenido.innerHTML = "En MatcheADAs tu objetivo es juntar tres o más ítems del mismo tipo, ya sea en fila o columna. Para eso, selecciona un ítem y a continuación un ítem adyacente para intercambiarlos de lugar. <br /> <br /> Si se forma un grupo, esos ítems se eliminarán y ganarás puntos. ¡Sigue armando grupos de 3 o más antes de que se acabe el tiempo!<br /> <br /> <strong>Controles</strong> <br /> Click izquierdo: selección <br />Enter o Espacio: selección <br /> Flechas o WASD: movimiento e intercambio";
+contenido.innerHTML = "En MatcheADAs tu objetivo es juntar tres o más ítems del mismo tipo, ya sea en fila o columna. Para eso, selecciona un ítem y a continuación un ítem adyacente para intercambiarlos de lugar. <br /> <br /> Si se forma un grupo, esos ítems se eliminarán y ganarás puntos. ¡Sigue armando grupos de 3 o más antes de que se acabe el tiempo!<br /> <br /> <strong>Controles</strong> <br /> Clic en la imágen: selección <br />Pincha y mantén apretado: selección <br /> Arrastra: movimiento e intercambio";
 
 const welcome = () =>{
   swal ({
@@ -123,7 +123,7 @@ const restarting = () =>{
         time(stopTime);
         break;
       case "new":
-        nuevaGrid();
+        nuevaGrid(place);
         difficulty();
         break;
       default:    
@@ -153,15 +153,15 @@ const gameOver = () =>{
   }).then((value) =>{
     switch(value){
       case "new":
-        nuevaGrid();
+        nuevaGrid(place);
         difficulty();
         break;
       case "reinicia":
-        nuevaGrid();
+        nuevaGrid(place);
         break;
       default:    
     }
-  })  
+  }) 
 }
 
 window.addEventListener("load", ()=>{
