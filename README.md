@@ -3,7 +3,7 @@
 Este es un proyecto realizado con ADA ITW en los comienzos del aprendizaje de JavaScript. Será un trabajo que se mejorará con el tiempo a medida que incorpore más conocimientos del lenguaje , ya que abarca muchísimo más de lo que uno se imagina.
 MatcheAdas Rock es un juego dónde tienes que encontrar tres rockstars adyacentes en la grilla para poder realizar el matcheado y así sumar puntos, todo en el tiempo de 30 segundos.
 
-## Para ver cómo queda el proyecto, a medida que se va mejorando y actualizando, puedes dar clic al siguiente [enlace](https://karijofre.github.io/Matcheadas-rock/) o puedes hacerlo desde [aquí]()
+## Para ver cómo queda el proyecto, a medida que se va mejorando y actualizando, puedes dar clic al siguiente [enlace](https://karijofre.github.io/Matcheadas-rock/) o puedes hacerlo desde [aquí](https://confident-wilson-9645ea.netlify.app/)
 <br>
 
 ***
